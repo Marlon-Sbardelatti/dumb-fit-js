@@ -2,6 +2,7 @@ let treinos = document.getElementById("treinos_container");
 let treinos_form = document.getElementById("treinos_form");
 let formButton = document.getElementById("form_button");
 let gridContainer = document.getElementById("grid-container");
+let clicked = "";
 
 function create() {
     //cria as linhas ao clicar no botao de add na pag de criar treinos
@@ -10,6 +11,7 @@ function create() {
     let input_ser = document.createElement("input");
     let deleteIcon = document.createElement("img");
     let div = document.createElement("div");
+    div.className = "input-divs";
     deleteIcon.src = "../assets/imgs/delete-icon.png";
     deleteIcon.className = "delete-icon";
     deleteIcon.setAttribute("onclick", "deleteTD(event)");
@@ -162,8 +164,40 @@ function save_user(event) {
 
 window.addEventListener("load", (event) => {
     //set o nome elemento do user com o valor salvo
-    document.getElementById("user_menu").innerText = localStorage.getItem("user");
+    // document.getElementById("user_menu").innerText = localStorage.getItem("user");
+
+    let path = location.href.split("/");
+    path = path[path.length - 1];
+    verifyHover(path);
+
+    if (localStorage.getItem("clicked")) {
+        // console.log(localStorage.getItem("clicked"));
+        let links = document.getElementsByClassName("global-container");
+        links = links[0].getElementsByTagName("ul")[0].getElementsByTagName("li");
+
+        for (const l of links) {
+            // console.log(l.getAttribute("data-loc"))
+            if (l.getAttribute("data-loc") == localStorage.getItem("clicked")) {
+                console.log(l);
+                l.classList.add("link-clicked")
+            }
+        }
+    }
+    // console.log(li)
 });
+
+function verifyHover(path) {
+    let links = document.getElementsByClassName("global-container");
+    links = links[0].getElementsByTagName("ul")[0].getElementsByTagName("li");
+
+    for (const l of links) {
+        if (l.getAttribute("data-loc") == path) {
+            clicked = path;
+            localStorage.setItem("clicked", path);
+            return l;
+        }
+    }
+}
 
 function showPassword() {
     let pswInput = document.getElementById("password_field");
@@ -461,23 +495,23 @@ function deleteEverything(event) {
 
 function menuToggle(event) {
     let container = document.getElementsByClassName("sidebar")[0];
-    if (container == null){
-    container = document.getElementsByClassName("drawer")[0];
+    if (container == null) {
+        container = document.getElementsByClassName("drawer")[0];
     }
 
-    if (container.getAttribute("data-toogle") == "side"){
-        container.dataset.toogle = "drawer"
-        container.setAttribute("class", "drawer")
+    if (container.getAttribute("data-toogle") == "side") {
+        container.dataset.toogle = "drawer";
+        container.setAttribute("class", "drawer");
         let links = container.getElementsByTagName("a");
-        for (const a of links){
-            a.setAttribute("style", "display: block")
+        for (const a of links) {
+            a.setAttribute("style", "display: block");
         }
-    }else {
-        container.dataset.toogle = "side"
-        container.setAttribute("class", "sidebar")
+    } else {
+        container.dataset.toogle = "side";
+        container.setAttribute("class", "sidebar");
         let links = container.getElementsByTagName("a");
-        for (const a of links){
-            a.setAttribute("style", "display: none")
+        for (const a of links) {
+            a.setAttribute("style", "display: none");
         }
     }
 }

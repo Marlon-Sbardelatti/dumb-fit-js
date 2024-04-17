@@ -192,7 +192,7 @@ body {
   background: #420070;
   box-shadow: 1px 0px 1.2px 0px #e3e3e3;
   /* border-radius: 3px; */
-  width: 5rem;
+  width: 80px;
   padding: 10px;
   height: 100vh;
   text-align: center;
@@ -234,7 +234,7 @@ body {
   background: #420070;
   box-shadow: 1px 0px 1.2px 0px #e3e3e3;
   /* border-radius: 3px; */
-  width: 18rem;
+  width: 360px;
   padding: 10px;
   height: 100vh;
   text-align: center;
@@ -257,6 +257,12 @@ body {
 .drawer ul li:hover {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 0.9rem;
+}
+
+li.link-clicked {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 0.9rem;
+
 }
 
 /* .sidebar ul li a i { */
@@ -289,6 +295,11 @@ body {
 }
 
 .sidebar ul li div:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 0.9rem;
+}
+
+.link-clicked div {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 0.9rem;
 }
