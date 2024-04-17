@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dumb Fit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="../assets/home.css" rel="stylesheet" />
+    <link href="../assets/pesquisar.css" rel="stylesheet" />
+    <link href="../assets/treinos.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="../assets/imgs/logo.png" />
+  </head>
+
+  <body>
+    <div class="global-container" style="display: flex">
+      <nav class="sidebar" data-toogle="side">
+        <ul>
+          <li onclick="menuToggle(event)">
+            <div class="icons-nav-div">
+              <img
+                src="../assets/imgs/menu-material.png"
+                alt=""
+                style="width: 1.4rem"
+              />
+            </div>
+          </li>
+          <li onclick="location.href='home.html'">
+            <div class="icons-nav-div">
+              <img
+                src="../assets/imgs/home-material.png"
+                alt=""
+                style="width: 1.4rem"
+              />
+            </div>
+            <a class="icon icon-arrow-small-right" style="display: none"
+              >home</a
+            >
+          </li>
+
+          <li onclick="location.href='criar.html'">
+            <div class="icons-nav-div">
+              <img src="../assets/imgs/create-material-hover.png" alt="" />
+            </div>
+            <a
+              class="icon icon-arrow-small-right"
+              href="criar.html"
+              style="display: none"
+              >criar</a
+            >
+          </li>
+          <li onclick="location.href='pesquisar.html'">
+            <div class="icons-nav-div">
+              <img
+                src="../assets/imgs/search-nav.png"
+                alt=""
+                style="width: 1.3rem"
+              />
+            </div>
+            <a
+              class="icon icon-arrow-small-right"
+              href="pesquisar.html"
+              style="display: none"
+              >buscar</a
+            >
+          </li>
+          <li onclick="location.href='treinos.html'">
+            <div class="icons-nav-div">
+              <img
+                src="../assets/imgs/list-all.png"
+                alt=""
+                style="width: 1.3rem"
+              />
+            </div>
+            <a
+              class="icon icon-arrow-small-right"
+              href="treinos.html"
+              style="display: none"
+              >treinos</a
+            >
+          </li>
+          <li onclick="location.href='../index.html'">
+            <div class="icons-nav-div">
+              <img
+                src="../assets/imgs/logout-icon.png"
+                alt=""
+                style="width: 1.2rem"
+              />
+            </div>
+            <a
+              class="icon icon-arrow-small-right"
+              href="../index.html"
+              style="display: none"
+              >sair</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div id="div-pesquisa" style="width: 100%">
+        <h1>Pesquise pelo nome do seu treino</h1>
+        <div
+          style="
+            background-color: white;
+            width: 60%;
+            margin-left: 20%;
+            text-align: left;
+            border-radius: 2rem;
+          "
+        >
+          <img
+            onclick="pesquisar(event)"
+            src="../assets/imgs/search.png"
+            alt="imagem de uma lupa de pesquisa"
+            style="padding-inline: 1rem"
+          />
+          <input
+            onkeypress="verificarEnter(event)"
+            id="input-pesquisa"
+            type="search"
+            style="
+              background: transparent;
+              width: 94%;
+              padding: 0.8rem;
+              font-size: 20px;
+              outline: none;
+              border: none;
+            "
+          />
+        </div>
+
+        <div id="grid-container"></div>
+      </div>
+    </div>
+
+    <script src="../src/app.js"></script>
+  </body>
+</html>

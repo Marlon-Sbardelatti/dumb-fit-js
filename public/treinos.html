@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dumb Fit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="../assets/home.css" rel="stylesheet" />
+    <link href="../assets/home.css" rel="stylesheet" />
+    <link href="../assets/treinos.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="../assets/imgs/logo.png" />
+  </head>
+
+  <body onload="render()">
+    <div class="global-container" style="display: flex">
+      <nav class="sidebar" data-toogle="side">
+        <ul>
+          <li onclick="menuToggle(event)">
+            <div class="icons-nav-div">
+              <img
+                src="../assets/imgs/menu-material.png"
+                alt=""
+                style="width: 1.4rem"
+              />
+            </div>
+          </li>
+          <li onclick="location.href='home.html'">
+            <div class="icons-nav-div">
+              <img
+                src="../assets/imgs/home-material.png"
+                alt=""
+                style="width: 1.4rem"
+              />
+            </div>
+            <a class="icon icon-arrow-small-right" style="display: none"
+              >home</a
+            >
+          </li>
+
+          <li onclick="location.href='criar.html'">
+            <div class="icons-nav-div">
+              <img src="../assets/imgs/create-material-hover.png" alt="" />
+            </div>
+            <a
+              class="icon icon-arrow-small-right"
+              href="criar.html"
+              style="display: none"
+              >criar</a
+            >
+          </li>
+          <li onclick="location.href='pesquisar.html'">
+            <div class="icons-nav-div">
+              <img
+                src="../assets/imgs/search-nav.png"
+                alt=""
+                style="width: 1.3rem"
+              />
+            </div>
+            <a
+              class="icon icon-arrow-small-right"
+              href="pesquisar.html"
+              style="display: none"
+              >buscar</a
+            >
+          </li>
+          <li onclick="location.href='treinos.html'">
+            <div class="icons-nav-div">
+              <img
+                src="../assets/imgs/list-all.png"
+                alt=""
+                style="width: 1.3rem"
+              />
+            </div>
+            <a
+              class="icon icon-arrow-small-right"
+              href="treinos.html"
+              style="display: none"
+              >treinos</a
+            >
+          </li>
+          <li onclick="location.href='../index.html'">
+            <div class="icons-nav-div">
+              <img
+                src="../assets/imgs/logout-icon.png"
+                alt=""
+                style="width: 1.2rem"
+              />
+            </div>
+            <a
+              class="icon icon-arrow-small-right"
+              href="../index.html"
+              style="display: none"
+              >sair</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div style="">
+        <div id="empty-div" style="display: none">
+          <h1 id="phrase">Você ainda não possui treinos</h1>
+          <button id="button-empty">
+            <a href="../public/criar.html">CRIAR</a>
+          </button>
+        </div>
+      </div>
+      <div>
+        <div style="" id="grid-container"></div>
+        <!-- <div -->
+        <!--   id="delete-all-div" -->
+        <!--   style="text-align: center" -->
+        <!--   onclick="deleteEverything(event)" -->
+        <!-- > -->
+        <!--   <img -->
+        <!--     id="delete-all-icon" -->
+        <!--     style="" -->
+        <!--     src="../assets/imgs/lixeira60.png" -->
+        <!--     alt="ícone de lixeira/apagar" -->
+        <!--   /> -->
+        <!--   <h2>Apagar tudo</h2> -->
+        <!-- </div> -->
+      </div>
+    </div>
+    <!-- <header id="home_header"> -->
+    <!--   <div style="display: flex; align-items: center"> -->
+    <!--     <a href="../public/home.html" style="margin-right: 10px" -->
+    <!--       ><img src="../assets/imgs/icons8-gym-64-white.png" alt="ícone de um halter representando o logo da academia" -->
+    <!--     /></a> -->
+    <!--     <a href="../public/home.html" style="text-decoration: none"> -->
+    <!--       <h1 style="color: white">DUMB FIT</h1> -->
+    <!--     </a> -->
+    <!--   </div> -->
+
+    <!--   <div style="display: flex; align-items: center; margin-right: 3vh"> -->
+    <!--     <img -->
+    <!--       src="../assets/imgs/avatar-rm-bg.png" -->
+    <!--       id="avatar" -->
+    <!--       alt="imagem de avatar do usuário" -->
+    <!--       style="margin-right: 10px" -->
+    <!--     /> -->
+    <!--     <h1 id="user_menu"></h1> -->
+    <!--   </div> -->
+    <!--   <nav id="my-nav"> -->
+    <!--     <ul id="my-ul"> -->
+    <!--       <li class="my-li"> -->
+    <!--         <a class="menu_link" href="../public/criar.html" -->
+    <!--           ><img -->
+    <!--             class="menu-imgs" -->
+    <!--             src="../assets/imgs/criar-icon.png" -->
+    <!--             style="width: 2rem" -->
+    <!--             alt="ícone de criar no menu" -->
+    <!--         /></a> -->
+    <!--         <h5>criar</h5> -->
+    <!--       </li> -->
+    <!--       <li class="my-li"> -->
+    <!--         <a class="menu_link" href="../public/pesquisar.html" -->
+    <!--           ><img -->
+    <!--             class="menu-imgs" -->
+    <!--             src="../assets/imgs/search-nav.png" -->
+    <!--             style="width: 1.9rem" -->
+    <!--             alt="ícone de pesquisar no menu" -->
+    <!--         /></a> -->
+    <!--         <h5>buscar</h5> -->
+    <!--       </li> -->
+    <!--       <li class="my-li" style="margin-right: 0.3rem"> -->
+    <!--         <a class="menu_link" href="../public/treinos.html" -->
+    <!--           ><img -->
+    <!--             class="menu-imgs" -->
+    <!--             src="../assets/imgs/list-all.png" -->
+    <!--             style="width: 1.9rem" -->
+    <!--             alt="ícone de listar todos os treinos no menu" -->
+    <!--         /></a> -->
+    <!--         <h5>treinos</h5> -->
+    <!--       </li> -->
+    <!--       <li class="my-li"> -->
+    <!--         <a class="menu_link" href="../index.html" -->
+    <!--           ><img -->
+    <!--             class="menu-imgs" -->
+    <!--             src="../assets/imgs/logout-icon.png" -->
+    <!--             style="width: 1.6rem" -->
+    <!--             alt="ícone de sair da sessão no menu" -->
+    <!--         /></a> -->
+    <!--         <h5>sair</h5> -->
+    <!--       </li> -->
+    <!--     </ul> -->
+    <!--   </nav> -->
+    <!-- </header> -->
+    <!-- <div id="empty-div" style="display: none"> -->
+    <!--   <h1 id="phrase">Você ainda não possui treinos</h1> -->
+    <!--   <button id="button-empty"> -->
+    <!--     <a href="../public/criar.html">CRIAR</a> -->
+    <!--   </button> -->
+    <!-- </div> -->
+
+    <!-- <div id="grid-container"></div> -->
+
+    <!-- <div id="delete-all-div" style="text-align: center" onclick="deleteEverything(event)"> -->
+    <!--   <img id="delete-all-icon" style="" src="../assets/imgs/lixeira60.png" alt="ícone de lixeira/apagar" /> -->
+    <!--   <h2>Apagar tudo</h2> -->
+    <!-- </div> -->
+
+    <!-- <footer id="my_footer"> -->
+    <!--   <div id="footer_content"> -->
+    <!--     <p class="footer_item">Marlon Sbardelatti</p> -->
+    <!--     <p class="footer_item">Matheus Ohrt</p> -->
+    <!--     <p class="footer_item">+55 (47) 99213-0567</p> -->
+    <!--     <p class="footer_item">dumbfit@contato.com</p> -->
+    <!--   </div> -->
+    <!-- </footer> -->
+
+    <script src="../src/app.js"></script>
+  </body>
+</html>
