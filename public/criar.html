@@ -17,18 +17,39 @@
   </head>
 
   <body>
+    <header>
+      <ul style="height: 5rem">
+        <li onclick="menuToggle(event)">
+          <div class="" style="">
+            <img
+              src="../assets/imgs/menu-material.png"
+              alt=""
+              style="width: 1.4rem"
+              id="menu-btn"
+            />
+            <img
+              src="../assets/imgs/logo.png"
+              alt=""
+              style="height: 1.6rem; margin-left: 1.1rem"
+            />
+            <h3 style="">Dumb Fit</h3>
+          </div>
+        </li>
+        <li style="margin-right: 2rem" id="user_menu">user</li>
+      </ul>
+    </header>
     <div class="global-container" style="display: flex">
       <nav class="sidebar" data-toogle="side">
         <ul>
-          <li onclick="menuToggle(event)">
-            <div class="icons-nav-div">
-              <img
-                src="../assets/imgs/menu-material.png"
-                alt=""
-                style="width: 1.4rem"
-              />
-            </div>
-          </li>
+          <!-- <li onclick="menuToggle(event)"> -->
+          <!--   <div class="icons-nav-div"> -->
+          <!--     <img -->
+          <!--       src="../assets/imgs/menu-material.png" -->
+          <!--       alt="" -->
+          <!--       style="width: 1.4rem" -->
+          <!--     /> -->
+          <!--   </div> -->
+          <!-- </li> -->
           <li onclick="redirect(event, 'home.html')" data-loc="home.html">
             <div class="icons-nav-div">
               <img
@@ -103,41 +124,71 @@
           </li>
         </ul>
       </nav>
-      <div id="treinos_container" style="">
-        <h1 style="align-self: center; margin-right: 45px">Crie seu Treino</h1>
-        <div style="margin-top: 2rem;">
-          <input
-            type="text"
-            class="input_treinos"
-            name=""
-            value=""
-            placeholder="Nome do Treino"
-            style="align-self: center; margin-right: 40px"
-          />
+      <!-- <div id="treinos_container" style=""> -->
+      <!--   <h1 style="align-self: center; margin-right: 45px">Crie seu Treino</h1> -->
+      <!--   <div style="margin-top: 2rem"> -->
+      <!--     <input -->
+      <!--       type="text" -->
+      <!--       class="input_treinos" -->
+      <!--       name="" -->
+      <!--       value="" -->
+      <!--       placeholder="Nome do Treino" -->
+      <!--       style="align-self: center; margin-right: 40px" -->
+      <!--     /> -->
+      <!--   </div> -->
+      <!--   <br /> -->
+      <!--   <!-1- <form id="treinos_form"> -1-> -->
+      <!--     <!-1-   <div class="input-divs"> -1-> -->
+      <!--     <!-1-     <input -1-> -->
+      <!--     <!-1-       class="input_treinos" -1-> -->
+      <!--     <!-1-       type="text" -1-> -->
+      <!--     <!-1-       placeholder="Nome do Exercício" -1-> -->
+      <!--     <!-1-     /> -1-> -->
+      <!--     <!-1-     <input -1-> -->
+      <!--     <!-1-       class="input_treinos" -1-> -->
+      <!--     <!-1-       type="number" -1-> -->
+      <!--     <!-1-       placeholder="Repetições" -1-> -->
+      <!--     <!-1-     /> -1-> -->
+      <!--     <!-1-     <input class="input_treinos" type="number" placeholder="Séries" /> -1-> -->
+      <!--     <!-1-     <img -1-> -->
+      <!--     <!-1-       class="delete-icon" -1-> -->
+      <!--     <!-1-       src="../assets/imgs/delete-icon.png" -1-> -->
+      <!--     <!-1-       onclick="deleteTD(event)" -1-> -->
+      <!--     <!-1-       alt="ícone de deletar" -1-> -->
+      <!--     <!-1-     /> -1-> -->
+      <!--     <!-1-   </div> -1-> -->
+      <!--   <!-1- </form> -1-> -->
+      <!-- </div> -->
+      <!-- <form -->
+      <!--   action="" -->
+      <!--   style=" -->
+      <!--     display: flex; -->
+      <!--     flex-direction: column; -->
+      <!--     background-color: white; -->
+      <!--     height: 15rem; -->
+      <!--     justify-content: center; -->
+      <!--   " -->
+      <!-- > -->
+      <!--   <input type="text" placeholder="Nome do Exercício" /> -->
+      <!--   <input type="number" placeholder="Repetições" /> -->
+      <!--   <input type="number" placeholder="Séries" /> -->
+      <!-- </form> -->
+      <form action="" id="form-container" style="">
+        <div class="card-exercicio">
+          <input type="text" placeholder="Grupo Muscular" />
         </div>
-        <br />
-        <form id="treinos_form">
-          <div class="input-divs">
-            <input
-              class="input_treinos"
-              type="text"
-              placeholder="Nome do Exercício"
-            />
-            <input
-              class="input_treinos"
-              type="number"
-              placeholder="Repetições"
-            />
-            <input class="input_treinos" type="number" placeholder="Séries" />
-            <img
-              class="delete-icon"
-              src="../assets/imgs/delete-icon.png"
-              onclick="deleteTD(event)"
-              alt="ícone de deletar"
-            />
-          </div>
-        </form>
-      </div>
+        <div class="card-exercicio">
+          <input type="text" placeholder="Nome do Exercício" />
+          <input type="number" placeholder="Repetições" />
+          <input type="number" placeholder="Séries" />
+        </div>
+
+        <div class="card-exercicio">
+          <input type="text" placeholder="Nome do Exercício" />
+          <input type="number" placeholder="Repetições" />
+          <input type="number" placeholder="Séries" />
+        </div>
+      </form>
       <div id="buttons_container">
         <button onclick="save(event)" id="btn-salvar" type="submit" style="">
           SALVAR

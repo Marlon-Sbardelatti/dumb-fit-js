@@ -13,34 +13,12 @@ body {
     /* padding: 0; */
 }
 
-#treinos_container input{
+#treinos_container input {
     border-radius: 5px;
     border-width: thin;
     padding: 8px;
     margin-right: 10px;
     margin-bottom: 10px;
-}
-
-#treinos_container {
-    text-align: center;
-    /* background-color: blue; */
-    /* position: absolute; */
-    /* display: flex; */
-    /* flex-direction: column; */
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 8vh;
-    width: 55%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    padding: 30px;
-    border-radius: 12px;
-    margin-bottom: 40vh;
-}
-
-#treinos_container:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
 }
 
 #treinos_form {
@@ -91,4 +69,65 @@ body {
 
 .delete-icon:hover {
     transform: scale(1.2);
+}
+
+#treinos_container {
+    text-align: center;
+    /* background-color: blue; */
+    /* position: absolute; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8vh;
+    width: 55%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40vh;
+}
+
+#treinos_container:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+#form-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2rem;
+    width: 55%;
+}
+
+.card-exercicio {
+    text-align: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-exercicio:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.card-exercicio input {
+    width: 40%;
+    padding: 0.7rem;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: thin;
+    margin-bottom: 1rem;
+    outline: none;
 }

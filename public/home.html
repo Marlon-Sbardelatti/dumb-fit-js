@@ -16,15 +16,20 @@
 
   <body>
     <header>
-      <ul style="height: 5rem;">
+      <ul style="height: 5rem">
         <li onclick="menuToggle(event)">
           <div class="" style="">
             <img
               src="../assets/imgs/menu-material.png"
               alt=""
               style="width: 1.4rem"
+              id="menu-btn"
             />
-            <img src="../assets/imgs/logo.png" alt="" style="height: 1.6rem" />
+            <img
+              src="../assets/imgs/logo.png"
+              alt=""
+              style="height: 1.6rem; margin-left: 1.1rem"
+            />
             <h3 style="">Dumb Fit</h3>
           </div>
         </li>
@@ -35,9 +40,13 @@
       <nav class="sidebar" data-toogle="side">
         <ul>
           <!-- <li onclick="menuToggle(event)"> -->
-          <!--     <div class="icons-nav-div"> -->
-          <!--         <img src="../assets/imgs/menu-material.png" alt="" style="width: 1.4rem" /> -->
-          <!--     </div> -->
+          <!--   <div class="icons-nav-div"> -->
+          <!--     <img -->
+          <!--       src="../assets/imgs/menu-material.png" -->
+          <!--       alt="" -->
+          <!--       style="width: 1.4rem" -->
+          <!--     /> -->
+          <!--   </div> -->
           <!-- </li> -->
           <li onclick="redirect(event, 'home.html')" data-loc="home.html">
             <div class="icons-nav-div">
@@ -114,23 +123,20 @@
         </ul>
       </nav>
 
-      <!-- <div style="display: flex; flex-direction: column; width: 100%;"> -->
-      <!-- <header> -->
-      <!--     <ul style=" -->
-      <!--   display: flex; -->
-      <!--   list-style: none; -->
-      <!--   background-color: #420070; -->
-      <!--   justify-content: flex-end; -->
-      <!--   height: 3.5rem; -->
-      <!--   color: white; -->
-      <!--   align-items: center; -->
-      <!--   font-weight: bold; -->
-      <!--   width: 100%; -->
-      <!-- "> -->
-      <!--         <!-1- <li style="margin-left: 5.5rem;">Dumb Fit</li> -1-> -->
-      <!--         <li style="margin-right: 2rem;" id="user_menu">user</li> -->
+      <!-- <div style="display: flex; flex-direction: column; width: 100%"> -->
+      <!--   <header> -->
+      <!--     <ul> -->
+      <!--       <div id="header-logo" style=""> -->
+      <!--         <img -->
+      <!--           src="../assets/imgs/logo.png" -->
+      <!--           alt="" -->
+      <!--           style="height: 1.6rem" -->
+      <!--         /> -->
+      <!--         <h3 style="margin-left: 0.5rem;">Dumb Fit</h3> -->
+      <!--       </div> -->
+      <!--       <li style="margin-right: 2rem" id="user_menu">user</li> -->
       <!--     </ul> -->
-      <!-- </header> -->
+      <!--   </header> -->
       <div style="">
         <div style="height: 20rem; margin-left: 5rem">
           <h1 id="title">Dumb Fit</h1>
