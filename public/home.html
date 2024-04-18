@@ -15,18 +15,30 @@
   </head>
 
   <body>
+    <header>
+      <ul style="height: 5rem;">
+        <li onclick="menuToggle(event)">
+          <div class="" style="">
+            <img
+              src="../assets/imgs/menu-material.png"
+              alt=""
+              style="width: 1.4rem"
+            />
+            <img src="../assets/imgs/logo.png" alt="" style="height: 1.6rem" />
+            <h3 style="">Dumb Fit</h3>
+          </div>
+        </li>
+        <li style="margin-right: 2rem" id="user_menu">user</li>
+      </ul>
+    </header>
     <div class="global-container" style="display: flex">
       <nav class="sidebar" data-toogle="side">
         <ul>
-          <li onclick="menuToggle(event)">
-            <div class="icons-nav-div">
-              <img
-                src="../assets/imgs/menu-material.png"
-                alt=""
-                style="width: 1.4rem"
-              />
-            </div>
-          </li>
+          <!-- <li onclick="menuToggle(event)"> -->
+          <!--     <div class="icons-nav-div"> -->
+          <!--         <img src="../assets/imgs/menu-material.png" alt="" style="width: 1.4rem" /> -->
+          <!--     </div> -->
+          <!-- </li> -->
           <li onclick="redirect(event, 'home.html')" data-loc="home.html">
             <div class="icons-nav-div">
               <img
@@ -102,40 +114,38 @@
         </ul>
       </nav>
 
-      <div style="display: flex; flex-direction: column; width: 100%;">
-        <header>
-          <ul
-            style="
-              display: flex;
-              list-style: none;
-              background-color: #420070;
-              justify-content: flex-end;
-              height: 3.5rem;
-              color: white;
-              align-items: center;
-              font-weight: bold;
-              width: 100%;
-            "
-          >
-            <!-- <li style="margin-left: 5.5rem;">Dumb Fit</li> -->
-            <li style="margin-right: 2rem;" id="user_menu">user</li>
-          </ul>
-        </header>
-        <div style="">
-          <div style="height: 20rem; margin-left: 5rem">
-            <h1 id="title">Dumb Fit</h1>
-            <h1 id="dumber">Be better, be dumber!</h1>
-            <p id="p-desc">
-              Bem-vindo ao Dumb Fit, onde a força encontra a diversão! Somos
-              mais do que uma academia, somos uma comunidade apaixonada por
-              fitness e bem-estar.<br />
-              Oferecemos uma variedade de treinamentos, tudo projetado para
-              ajudá-lo a atingir seus objetivos de forma eficaz e divertida.<br />
-              Junte-se a nós e descubra o poder de uma vida ativa e saudável no
-              Dumb Fit.
-            </p>
-          </div>
+      <!-- <div style="display: flex; flex-direction: column; width: 100%;"> -->
+      <!-- <header> -->
+      <!--     <ul style=" -->
+      <!--   display: flex; -->
+      <!--   list-style: none; -->
+      <!--   background-color: #420070; -->
+      <!--   justify-content: flex-end; -->
+      <!--   height: 3.5rem; -->
+      <!--   color: white; -->
+      <!--   align-items: center; -->
+      <!--   font-weight: bold; -->
+      <!--   width: 100%; -->
+      <!-- "> -->
+      <!--         <!-1- <li style="margin-left: 5.5rem;">Dumb Fit</li> -1-> -->
+      <!--         <li style="margin-right: 2rem;" id="user_menu">user</li> -->
+      <!--     </ul> -->
+      <!-- </header> -->
+      <div style="">
+        <div style="height: 20rem; margin-left: 5rem">
+          <h1 id="title">Dumb Fit</h1>
+          <h1 id="dumber">Be better, be dumber!</h1>
+          <p id="p-desc">
+            Bem-vindo ao Dumb Fit, onde a força encontra a diversão! Somos mais
+            do que uma academia, somos uma comunidade apaixonada por fitness e
+            bem-estar.<br />
+            Oferecemos uma variedade de treinamentos, tudo projetado para
+            ajudá-lo a atingir seus objetivos de forma eficaz e divertida.<br />
+            Junte-se a nós e descubra o poder de uma vida ativa e saudável no
+            Dumb Fit.
+          </p>
         </div>
+        <!-- </div> -->
 
         <!-- <footer id="my_footer" style=""> -->
         <!--   <div id="footer_content"> -->
