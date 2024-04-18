@@ -164,7 +164,7 @@ function save_user(event) {
 
 window.addEventListener("load", (event) => {
 	//set o nome elemento do user com o valor salvo
-	// document.getElementById("user_menu").innerText = localStorage.getItem("user");
+	document.getElementById("user_menu").innerText = localStorage.getItem("user");
 
 	let path = location.href.split("/");
 	path = path[path.length - 1];
@@ -184,9 +184,9 @@ window.addEventListener("load", (event) => {
 				if (l.parentElement.parentElement.getAttribute("class") == "sidebar") {
 					l.classList.add("link-clicked-side");
 				} else {
-                    if (localStorage.getItem("menu-state") == "drawer") {
-                        return;    
-                    }
+					if (localStorage.getItem("menu-state") == "drawer") {
+						return;
+					}
 					l.getElementsByTagName("div")[0].classList.add("link-clicked-drawer");
 				}
 			} else {
@@ -235,7 +235,7 @@ function verifyToggle() {
 function redirect(event, path) {
 	let state = document.getElementsByTagName("nav")[0].dataset.toogle;
 	localStorage.setItem("menu-state", state);
-    localStorage.setItem("clicked", path);
+	localStorage.setItem("clicked", path);
 	location.href = path;
 }
 
