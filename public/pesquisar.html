@@ -35,7 +35,10 @@
             <h3 style="">Dumb Fit</h3>
           </div>
         </li>
-        <li style="margin-right: 2rem" id="user_menu">user</li>
+        <div style="display: flex; align-items: center;">
+                    <img src="../assets/imgs/avatar-rm-bg.png" alt="" style="height: 2rem;">
+          <p style="margin-right: 2rem; margin-left: 0.5rem;" id="user_menu">user</p>
+        </div>
       </ul>
     </header>
     <div class="global-container" style="display: flex">
@@ -50,7 +53,7 @@
           <!--     /> -->
           <!--   </div> -->
           <!-- </li> -->
-          <!-- <li onclick="redirect(event, 'home.html')" data-loc="home.html"> -->
+          <li onclick="redirect(event, 'home.html')" data-loc="home.html">
             <div class="icons-nav-div">
               <img
                 src="../assets/imgs/home-material.png"
@@ -160,6 +163,15 @@
         <div id="grid-container"></div>
       </div>
     </div>
+
+    <footer id="my_footer" style="width: 100%;">
+      <div id="footer_content">
+        <p class="footer_item">Marlon Sbardelatti</p>
+        <p class="footer_item">Matheus Ohrt</p>
+        <p class="footer_item">+55 (47) 99213-0567</p>
+        <p class="footer_item">dumbfit@contato.com</p>
+      </div>
+    </footer>
 
     <script src="../src/app.js"></script>
   </body>

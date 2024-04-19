@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Roboto;
+    font-family: Poppins;
     box-sizing: border-box;
     /* overflow: hidden; */
 }
@@ -217,7 +217,7 @@ body {
     display: block;
     padding: 4px 0;
     font-size: 1em;
-    font-family: Roboto;
+    font-family: Poppins;
     color: white;
     text-decoration: none;
     transition: 0.5s;
@@ -255,7 +255,7 @@ body {
 
 .drawer ul li:hover {
     background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 0.9rem;
+    border-radius: 3.9rem;
 }
 
 li.link-clicked {
@@ -272,7 +272,7 @@ li.link-clicked {
     display: block;
     padding: 4px 0;
     font-size: 1em;
-    font-family: Roboto;
+    font-family: Poppins;
     color: white;
     text-decoration: none;
     transition: 0.5s;
@@ -286,10 +286,10 @@ li.link-clicked {
 
 .icons-nav-div {
     /* padding-inline: 0.8rem; */
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
+    /* padding-top: 0.3rem; */
+    /* padding-bottom: 0.3rem; */
     transition: 0.2s;
-    width: 4rem;
+    width: 3rem;
 }
 
 /* .sidebar ul li div:hover { */
@@ -299,22 +299,22 @@ li.link-clicked {
 
 .link-clicked {
     background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 0.9rem;
+    border-radius: 3.9rem;
 }
 
 .not-clicked:hover {
     background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 0.9rem;
+    border-radius: 3.9rem;
 }
 
 .link-clicked-side {
     background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 0.9rem;
+    border-radius: 3.9rem;
 }
 
 .link-clicked-drawer {
     background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 0.9rem;
+    border-radius: 3.9rem;
 }
 
 header ul {

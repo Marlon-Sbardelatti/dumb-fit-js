@@ -3,49 +3,95 @@ let treinos_form = document.getElementById("treinos_form");
 let formButton = document.getElementById("form_button");
 let gridContainer = document.getElementById("grid-container");
 let clicked = "";
+let countCard = 2;
 
 function create() {
 	//cria as linhas ao clicar no botao de add na pag de criar treinos
-	let input_nome = document.createElement("input");
-	let input_rep = document.createElement("input");
-	let input_ser = document.createElement("input");
-	let deleteIcon = document.createElement("img");
+	// let input_nome = document.createElement("input");
+	// let input_rep = document.createElement("input");
+	// let input_ser = document.createElement("input");
+	// let deleteIcon = document.createElement("img");
+	// let div = document.createElement("div");
+	// div.className = "input-divs";
+	// deleteIcon.src = "../assets/imgs/delete-icon.png";
+	// deleteIcon.className = "delete-icon";
+	// deleteIcon.setAttribute("onclick", "deleteTD(event)");
+	// input_rep.type = "number";
+	// input_ser.type = "number";
+
+	// input_nome.placeholder = "Nome do Exercício";
+	// input_rep.placeholder = "Repetições";
+	// input_ser.placeholder = "Séries";
+
+	// input_nome.className = "input_treinos";
+	// input_ser.className = "input_treinos";
+	// input_rep.className = "input_treinos";
+
+	// let br = document.createElement("br");
+	// div.appendChild(br);
+	// div.appendChild(input_nome);
+	// div.appendChild(input_rep);
+	// div.appendChild(input_ser);
+	// div.appendChild(deleteIcon);
+	// treinos_form.appendChild(div);
+	let form = document.getElementById("form-container");
 	let div = document.createElement("div");
-	div.className = "input-divs";
-	deleteIcon.src = "../assets/imgs/delete-icon.png";
-	deleteIcon.className = "delete-icon";
-	deleteIcon.setAttribute("onclick", "deleteTD(event)");
-	input_rep.type = "number";
-	input_ser.type = "number";
+	div.classList.add("card-exercicio");
 
-	input_nome.placeholder = "Nome do Exercício";
-	input_rep.placeholder = "Repetições";
-	input_ser.placeholder = "Séries";
+	let p = document.createElement("p");
+	p.innerText = countCard;
+	p.classList.add("num-exercicio");
+	countCard++;
 
-	input_nome.className = "input_treinos";
-	input_ser.className = "input_treinos";
-	input_rep.className = "input_treinos";
+	div.appendChild(p);
+	div.appendChild(document.createElement("br"));
 
-	let br = document.createElement("br");
-	div.appendChild(br);
-	div.appendChild(input_nome);
-	div.appendChild(input_rep);
-	div.appendChild(input_ser);
-	div.appendChild(deleteIcon);
-	treinos_form.appendChild(div);
+	let inputNome = document.createElement("input");
+	let inputRep = document.createElement("input");
+	let inputSer = document.createElement("input");
+
+	inputNome.type = "text";
+	inputRep.type = "number";
+	inputSer.type = "number";
+
+	inputNome.placeholder = "Nome do Exercício";
+	inputRep.placeholder = "Repetições";
+	inputSer.placeholder = "Séries";
+
+	let btn = document.createElement("button");
+	btn.classList.add("btn-delete-card");
+	btn.innerText = "Excluir";
+	btn.setAttribute("onclick", "deleteTD(event)");
+
+	div.appendChild(inputNome);
+	div.appendChild(inputRep);
+	div.appendChild(inputSer);
+	div.appendChild(btn);
+
+	form.appendChild(div);
 }
 
 function save(event) {
 	//salva o treino na pag de criar
+	let form = document.getElementById("form-container");
+	let selects = document.getElementsByTagName("select");
 	let inputs = [];
 
-	for (let i = 0; i < treinos.getElementsByTagName("input").length; i++) {
-		const element = treinos.getElementsByTagName("input")[i];
+	for (let i = 0; i < form.getElementsByTagName("input").length; i++) {
+		const element = form.getElementsByTagName("input")[i];
 		if (element.value == null || element.value == "") {
 			event.preventDefault();
 		}
-		inputs.push(element.value);
+		if (i == 0) {
+			inputs.push(element.value);
+			for (const s of selects) {
+				inputs.push(s.value);
+			}
+		} else {
+			inputs.push(element.value);
+		}
 	}
+
 	// verificando se inputs estao vazios
 	if (!verificarInputs(inputs)) {
 		alert("Os campos não podem estar vazios.");
@@ -129,7 +175,7 @@ function render(event) {
 	}
 }
 function deleteAll(event) {
-	let currentDiv = event.target.parentElement;
+	let currentDiv = event.target.parentElement.parentElement;
 	localStorage.setItem(
 		"table-to-edit",
 		currentDiv.querySelector("h2").innerText,
@@ -168,8 +214,9 @@ window.addEventListener("load", (event) => {
 
 	let path = location.href.split("/");
 	path = path[path.length - 1];
-	verifyToggle();
-	verifyHover(path);
+	//need to rework this fns
+	// verifyToggle();
+	// verifyHover(path);
 
 	if (localStorage.getItem("clicked")) {
 		let links = document.getElementsByClassName("global-container");
@@ -249,12 +296,13 @@ function showPassword() {
 }
 
 function editTable(event) {
-	let currentDiv = event.target.parentElement;
+	let currentDiv = event.target.parentElement.parentElement;
 	localStorage.setItem(
 		"table-to-edit",
 		currentDiv.querySelector("h2").innerText,
 	);
-	window.location.href = "../public/editar.html";
+	// window.location.href = "../public/editar.html";
+    redirect(event, "../public/editar.html")
 }
 
 function renderEdit(event) {
@@ -272,52 +320,69 @@ function renderEdit(event) {
 function tableToEdit(data) {
 	//renderiza a table para edicao
 	//data == [exercicio x]
-	let nome = document.getElementById("nome-exe");
+	let nome = document.getElementById("nome");
 	nome.value = data[0];
-	let form = document.getElementById("form-editar");
+
+	let musculo = document.getElementById("musculos");
+	musculo.value = data[1];
+
+	let foco = document.getElementById("foco");
+	foco.value = data[2];
+
+	let form = document.getElementById("form-container");
+
+	let tempData = [];
+	for (let i = 3; i < data.length; i++) {
+		tempData.push(data[i]);
+	}
+	data = tempData;
 
 	let count = 0;
 	let div = document.createElement("div");
+	div.classList.add("card-exercicio");
+	countCard = 1;
 	for (let i = 0; i < data.length; i++) {
-		if (i != 0) {
-			switch (count) {
-				case 0:
-					let input = document.createElement("input");
-					input.value = data[i];
-					input.placeholder = "Nome";
-					let br = document.createElement("br");
-					div.appendChild(br);
-					div.appendChild(input);
-					count++;
-					break;
-				case 1:
-					let input1 = document.createElement("input");
-					input1.type = "number";
-					input1.placeholder = "Repetições";
-					input1.value = data[i];
-					div.appendChild(input1);
-					count++;
-					break;
-				case 2:
-					let input2 = document.createElement("input");
-					input2.value = data[i];
-					input2.type = "number";
-					input2.placeholder = "Séries";
-					form.appendChild(input2);
-					let deleteIcon = document.createElement("img");
-					deleteIcon.src = "../assets/imgs/delete-icon.png";
-					deleteIcon.className = "delete-icon";
-					deleteIcon.setAttribute("onclick", "deleteTD(event)");
-					div.appendChild(input2);
-					div.appendChild(deleteIcon);
-					form.appendChild(div);
-					count = 0;
-					div = document.createElement("div");
-					break;
+		switch (count) {
+			case 0:
+				let p = document.createElement("p");
+				p.classList.add("num-exercicio");
+				p.innerText = countCard;
+				countCard++;
+				let input = document.createElement("input");
+				input.value = data[i];
+				input.placeholder = "Nome";
+				div.appendChild(p);
+				div.appendChild(input);
+				count++;
+				break;
+			case 1:
+				let input1 = document.createElement("input");
+				input1.type = "number";
+				input1.placeholder = "Repetições";
+				input1.value = data[i];
+				div.appendChild(input1);
+				count++;
+				break;
+			case 2:
+				let input2 = document.createElement("input");
+				input2.value = data[i];
+				input2.type = "number";
+				input2.placeholder = "Séries";
+				form.appendChild(input2);
+				let btnDelete = document.createElement("button");
+				btnDelete.classList.add("btn-delete-card");
+				btnDelete.setAttribute("onclick", "deleteTD(event)");
+				btnDelete.innerText = "Excluir";
+				div.appendChild(input2);
+				div.appendChild(btnDelete);
+				form.appendChild(div);
+				count = 0;
+				div = document.createElement("div");
+				div.classList.add("card-exercicio");
+				break;
 
-				default:
-					break;
-			}
+			default:
+				break;
 		}
 	}
 }
@@ -326,16 +391,31 @@ function saveEdit(event) {
 	//salva o exercicio que foi editado
 	let newArr = [];
 	let inputs = document
-		.getElementById("editar-container")
+		.getElementById("form-container")
 		.querySelectorAll("input");
 
-	if (!verificarInputEditar(inputs)) {
+	let musculo = document.getElementById("musculos").value;
+	let foco = document.getElementById("foco").value;
+	if (
+		!verificarInputEditar(inputs) &&
+		musculo != null &&
+		musculo != "" &&
+		musculo != undefined &&
+		foco != null &&
+		foco != "" &&
+		foco != undefined
+	) {
 		alert("Os campos não podem estar vazios.");
 	} else {
 		//coloca o novo treino em um array
-		inputs.forEach((element) => {
+		newArr.push(inputs[0].value);
+		newArr.push(musculo);
+		newArr.push(foco);
+
+		for (let i = 1; i < inputs.length; i++) {
+			const element = inputs[i];
 			newArr.push(element.value);
-		});
+		}
 
 		//retorna um array sem o treino que foi editado
 		let temp = removerTreinoAtual();
@@ -345,6 +425,7 @@ function saveEdit(event) {
 		temp = JSON.stringify(temp);
 
 		//salva o novo arr
+		//tirar dps
 		localStorage.setItem("treinos", temp);
 		window.location.href = "../public/treinos.html";
 	}
@@ -405,6 +486,7 @@ function deleteTD(event) {
 	//remove o td selecionado na pag de editar e treinos
 	let parent = event.target.parentElement;
 	parent.remove();
+	countCard--;
 }
 
 function deleteEdit(event) {
@@ -453,9 +535,16 @@ function renderElement(element) {
 	card.className = "card";
 	let container = document.createElement("container");
 	container.className = "container";
-	let grupo = document.createElement("h2");
-	grupo.innerText = element[0];
-	container.appendChild(grupo);
+	let nomeExe = document.createElement("h2");
+	nomeExe.innerText = element[0];
+	container.appendChild(nomeExe);
+	let musculo = document.createElement("h4");
+	musculo.innerText = element[1];
+	musculo.classList.add("musculo-render");
+	container.appendChild(musculo);
+	let foco = document.createElement("h4");
+	foco.innerText = element[2];
+	container.appendChild(foco);
 	let table = document.createElement("table");
 	table.contentEditable = "false";
 	table.setAttribute("style", "font-size: 20px");
@@ -472,37 +561,42 @@ function renderElement(element) {
 	tr.appendChild(reps);
 	body.appendChild(tr);
 
+	elementTemp = [];
+	for (let i = 3; i < element.length; i++) {
+		elementTemp.push(element[i]);
+	}
+	element = elementTemp;
 	let trData = document.createElement("tr");
 	let count = 0;
 	for (let i = 0; i < element.length; i++) {
-		if (i != 0) {
-			const e = element[i];
-			switch (count) {
-				case 0:
-					let nome = document.createElement("td");
-					nome.innerText = e;
-					trData.appendChild(nome);
-					count++;
-					break;
-				case 1:
-					let series = document.createElement("td");
-					series.innerText = e;
-					trData.appendChild(series);
-					count++;
-					break;
-				case 2:
-					let reps = document.createElement("td");
-					reps.innerText = e;
-					trData.appendChild(reps);
-					body.appendChild(trData);
-					trData = document.createElement("tr");
-					count = 0;
-					break;
+		// if (i != 0) {
+		const e = element[i];
+		switch (count) {
+			case 0:
+				let nome = document.createElement("td");
+				nome.innerText = e;
+				trData.appendChild(nome);
+				count++;
+				break;
+			case 1:
+				let series = document.createElement("td");
+				series.innerText = e;
+				trData.appendChild(series);
+				count++;
+				break;
+			case 2:
+				let reps = document.createElement("td");
+				reps.innerText = e;
+				trData.appendChild(reps);
+				body.appendChild(trData);
+				trData = document.createElement("tr");
+				count = 0;
+				break;
 
-				default:
-					break;
-			}
+			default:
+				break;
 		}
+		// }
 	}
 	let img = document.createElement("img");
 	img.className = "edit-icon";
@@ -516,10 +610,24 @@ function renderElement(element) {
 	deleteIcon.setAttribute("style", "height: 2.5rem");
 	deleteIcon.setAttribute("onclick", "deleteAll(event)");
 
-	// body.appendChild(trData);
-	container.appendChild(img);
+	let buttonDelete = document.createElement("button");
+	buttonDelete.innerText = "Excluir";
+	buttonDelete.setAttribute("onclick", "deleteAll(event)");
+	let buttonEdit = document.createElement("button");
+	buttonEdit.innerText = "Editar";
+	buttonEdit.setAttribute("onclick", "editTable(event)");
+	buttonEdit.classList.add("btn-editar");
+	buttonDelete.classList.add("btn-deletar");
+	let divButton = document.createElement("div");
+	divButton.appendChild(buttonEdit);
+	divButton.appendChild(buttonDelete);
+	divButton.classList.add("div-excluir-editar");
+
+	body.appendChild(trData);
 	container.appendChild(table);
-	container.appendChild(deleteIcon);
+	// container.appendChild(img);
+	// container.appendChild(deleteIcon);
+	container.appendChild(divButton);
 
 	card.appendChild(container);
 	// card.setAttribute("class", "")
