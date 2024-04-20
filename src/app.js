@@ -302,7 +302,7 @@ function editTable(event) {
 		currentDiv.querySelector("h2").innerText,
 	);
 	// window.location.href = "../public/editar.html";
-    redirect(event, "../public/editar.html")
+	redirect(event, "../public/editar.html");
 }
 
 function renderEdit(event) {
@@ -352,6 +352,7 @@ function tableToEdit(data) {
 				input.value = data[i];
 				input.placeholder = "Nome";
 				div.appendChild(p);
+				div.appendChild(document.createElement("br"));
 				div.appendChild(input);
 				count++;
 				break;
@@ -533,7 +534,7 @@ function renderElement(element) {
 	//renderiza um elemento por completo na pag de treinos ou de pesquisa
 	let card = document.createElement("div");
 	card.className = "card";
-	let container = document.createElement("container");
+	let container = document.createElement("div");
 	container.className = "container";
 	let nomeExe = document.createElement("h2");
 	nomeExe.innerText = element[0];
@@ -542,26 +543,30 @@ function renderElement(element) {
 	musculo.innerText = element[1];
 	musculo.classList.add("musculo-render");
 	container.appendChild(musculo);
-	let foco = document.createElement("h4");
-	foco.innerText = element[2];
-	container.appendChild(foco);
+	container.appendChild(document.createElement("br"));
 	let table = document.createElement("table");
 	table.contentEditable = "false";
-	table.setAttribute("style", "font-size: 20px");
+	table.setAttribute("style", "font-size: 20px;");
 	let body = table.createTBody();
 	let tr = document.createElement("tr");
 	let nome = document.createElement("th");
 	nome.innerText = "Nome";
+	nome.setAttribute("style", "border-left: 1px solid grey");
 	let series = document.createElement("th");
 	series.innerText = "Séries";
 	let reps = document.createElement("th");
 	reps.innerText = "Reps";
+	reps.setAttribute("style", "border-right: 1px solid grey");
+	// nome.setAttribute("style", "borde: 1px solid black")
 	tr.appendChild(nome);
 	tr.appendChild(series);
 	tr.appendChild(reps);
-	body.appendChild(tr);
+	let thead = document.createElement("thead");
+	thead.appendChild(tr);
+	body.appendChild(thead);
 
 	elementTemp = [];
+    let focoContent = element[2];
 	for (let i = 3; i < element.length; i++) {
 		elementTemp.push(element[i]);
 	}
@@ -576,6 +581,7 @@ function renderElement(element) {
 				let nome = document.createElement("td");
 				nome.innerText = e;
 				trData.appendChild(nome);
+				nome.setAttribute("style", "border-left: 1px solid grey");
 				count++;
 				break;
 			case 1:
@@ -587,6 +593,7 @@ function renderElement(element) {
 			case 2:
 				let reps = document.createElement("td");
 				reps.innerText = e;
+	reps.setAttribute("style", "border-right: 1px solid grey");
 				trData.appendChild(reps);
 				body.appendChild(trData);
 				trData = document.createElement("tr");
@@ -598,6 +605,7 @@ function renderElement(element) {
 		}
 		// }
 	}
+
 	let img = document.createElement("img");
 	img.className = "edit-icon";
 	img.src = "../assets/imgs/edit-icon.png";
@@ -624,7 +632,14 @@ function renderElement(element) {
 	divButton.classList.add("div-excluir-editar");
 
 	body.appendChild(trData);
-	container.appendChild(table);
+    let divTable = document.createElement("div");
+    let foco = `<p style=""><span style='font-weight: bold;'>Foco:</span> ${focoContent}</p>`;
+    divTable.innerHTML += foco;
+    // divTable.appendChild(foco);
+    divTable.appendChild(table);
+    divTable.classList.add("div-table");
+
+	container.appendChild(divTable);
 	// container.appendChild(img);
 	// container.appendChild(deleteIcon);
 	container.appendChild(divButton);

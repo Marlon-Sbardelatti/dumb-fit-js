@@ -23,20 +23,22 @@
   <body>
     <header style="">
       <ul style="height: 5rem">
-        <li onclick="menuToggle(event)">
+        <li>
           <div class="" style="">
             <img
               src="../assets/imgs/menu-material.png"
               alt=""
               style="width: 1.4rem"
               id="menu-btn"
+              onclick="menuToggle(event)"
             />
             <img
               src="../assets/imgs/logo.png"
               alt=""
               style="height: 1.6rem; margin-left: 1.1rem"
+              onclick="redirect(event, 'home.html')"
             />
-            <h3 style="">Dumb Fit</h3>
+            <h3 onclick="redirect(event, 'home.html')" style="">Dumb Fit</h3>
           </div>
         </li>
         <div style="display: flex; align-items: center;">
@@ -125,55 +127,6 @@
       </nav>
 
       <div id="criar-content">
-        <!-- <div id="treinos_container" style=""> -->
-        <!--   <h1 style="align-self: center; margin-right: 45px">Crie seu Treino</h1> -->
-        <!--   <div style="margin-top: 2rem"> -->
-        <!--     <input -->
-        <!--       type="text" -->
-        <!--       class="input_treinos" -->
-        <!--       name="" -->
-        <!--       value="" -->
-        <!--       placeholder="Nome do Treino" -->
-        <!--       style="align-self: center; margin-right: 40px" -->
-        <!--     /> -->
-        <!--   </div> -->
-        <!--   <br /> -->
-        <!--   <!-1- <form id="treinos_form"> -1-> -->
-        <!--     <!-1-   <div class="input-divs"> -1-> -->
-        <!--     <!-1-     <input -1-> -->
-        <!--     <!-1-       class="input_treinos" -1-> -->
-        <!--     <!-1-       type="text" -1-> -->
-        <!--     <!-1-       placeholder="Nome do Exercício" -1-> -->
-        <!--     <!-1-     /> -1-> -->
-        <!--     <!-1-     <input -1-> -->
-        <!--     <!-1-       class="input_treinos" -1-> -->
-        <!--     <!-1-       type="number" -1-> -->
-        <!--     <!-1-       placeholder="Repetições" -1-> -->
-        <!--     <!-1-     /> -1-> -->
-        <!--     <!-1-     <input class="input_treinos" type="number" placeholder="Séries" /> -1-> -->
-        <!--     <!-1-     <img -1-> -->
-        <!--     <!-1-       class="delete-icon" -1-> -->
-        <!--     <!-1-       src="../assets/imgs/delete-icon.png" -1-> -->
-        <!--     <!-1-       onclick="deleteTD(event)" -1-> -->
-        <!--     <!-1-       alt="ícone de deletar" -1-> -->
-        <!--     <!-1-     /> -1-> -->
-        <!--     <!-1-   </div> -1-> -->
-        <!--   <!-1- </form> -1-> -->
-        <!-- </div> -->
-        <!-- <form -->
-        <!--   action="" -->
-        <!--   style=" -->
-        <!--     display: flex; -->
-        <!--     flex-direction: column; -->
-        <!--     background-color: white; -->
-        <!--     height: 15rem; -->
-        <!--     justify-content: center; -->
-        <!--   " -->
-        <!-- > -->
-        <!--   <input type="text" placeholder="Nome do Exercício" /> -->
-        <!--   <input type="number" placeholder="Repetições" /> -->
-        <!--   <input type="number" placeholder="Séries" /> -->
-        <!-- </form> -->
         <h1 style="align-self: center; margin-bottom: 1rem">
           Crie o seu treino
         </h1>
@@ -230,75 +183,6 @@
         </div>
       </div>
     </div>
-    <!-- <header id="home_header"> -->
-    <!--     <div style="display: flex; align-items: center"> -->
-    <!--         <a href="../public/home.html" style="margin-right: 10px"><img src="../assets/imgs/icons8-gym-64-white.png" -->
-    <!--                 alt="ícone de um halter representando o logo da academia" /></a> -->
-    <!--         <a href="../public/home.html" style="text-decoration: none"> -->
-    <!--             <h1 style="color: white">DUMB FIT</h1> -->
-    <!--         </a> -->
-    <!--     </div> -->
-
-    <!--     <div style="display: flex; align-items: center; margin-right: 9vh"> -->
-    <!--         <img src="../assets/imgs/avatar-rm-bg.png" id="avatar" alt="Imagem de avatar do usuário" style="margin-right: 10px" /> -->
-    <!--         <h1 id="user_menu"></h1> -->
-    <!--     </div> -->
-    <!--     <nav id="my-nav"> -->
-    <!--         <ul id="my-ul"> -->
-    <!--             <li class="my-li"> -->
-    <!--                 <a class="menu_link" href="../public/criar.html"><img class="menu-imgs" -->
-    <!--                         src="../assets/imgs/criar-icon.png" style="width: 2rem" alt="ícone de criar no menu" /></a> -->
-    <!--                 <h5>criar</h5> -->
-    <!--             </li> -->
-    <!--             <li class="my-li"> -->
-    <!--                 <a class="menu_link" href="../public/pesquisar.html"><img class="menu-imgs" -->
-    <!--                         src="../assets/imgs/search-nav.png" style="width: 1.9rem" alt="ícone de pesquisar no menu" /></a> -->
-    <!--                 <h5>buscar</h5> -->
-    <!--             </li> -->
-    <!--             <li class="my-li" style="margin-right: 0.3rem"> -->
-    <!--                 <a class="menu_link" href="../public/treinos.html"><img class="menu-imgs" -->
-    <!--                         src="../assets/imgs/list-all.png" style="width: 1.9rem" alt="ícone de listar todos os treinos no menu" /></a> -->
-    <!--                 <h5>treinos</h5> -->
-    <!--             </li> -->
-    <!--             <li class="my-li"> -->
-    <!--                 <a class="menu_link" href="../index.html"><img class="menu-imgs" -->
-    <!--                         src="../assets/imgs/logout-icon.png" style="width: 1.6rem" alt="ícone de sair da sessão do menu" /></a> -->
-    <!--                 <h5>sair</h5> -->
-    <!--             </li> -->
-    <!--         </ul> -->
-    <!--     </nav> -->
-    <!-- </header> -->
-
-    <!-- <div id="treinos_container" style=""> -->
-    <!--     <h1 style="align-self: center; margin-right: 45px">Crie seu Treino</h1> -->
-    <!--     <input type="text" class="input_treinos" name="" value="" placeholder="Nome do Treino" -->
-    <!--         style="align-self: center; margin-right: 40px" /> -->
-    <!--     <br /> -->
-    <!--     <form id="treinos_form"> -->
-    <!--         <div> -->
-    <!--             <input class="input_treinos" type="text" placeholder="Nome do Exercício" /> -->
-    <!--             <input class="input_treinos" type="number" placeholder="Repetições" /> -->
-    <!--             <input class="input_treinos" type="number" placeholder="Séries" /> -->
-    <!--             <img class="delete-icon" src="../assets/imgs/delete-icon.png" onclick="deleteTD(event)" alt="ícone de deletar" /> -->
-    <!--         </div> -->
-    <!--     </form> -->
-    <!-- </div> -->
-    <!-- <div id="buttons_container"> -->
-    <!--     <button onclick="save(event)" id="btn-salvar" type="submit" style=""> -->
-    <!--         SALVAR -->
-    <!--     </button> -->
-    <!--     <button onclick="create()" id="btn-criar" type="button" style=""> -->
-    <!--             ADD -->
-    <!--     </button> -->
-    <!-- </div> -->
-    <!-- <footer id="my_footer" style=""> -->
-    <!--   <div id="footer_content"> -->
-    <!--     <p class="footer_item">Marlon Sbardelatti</p> -->
-    <!--     <p class="footer_item">Matheus Ohrt</p> -->
-    <!--     <p class="footer_item">+55 (47) 99213-0567</p> -->
-    <!--     <p class="footer_item">dumbfit@contato.com</p> -->
-    <!--   </div> -->
-    <!-- </footer> -->
 
     <footer id="my_footer" style="width: 100%">
       <div id="footer_content">

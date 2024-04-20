@@ -19,20 +19,22 @@
   <body>
     <header>
       <ul style="height: 5rem">
-        <li onclick="menuToggle(event)">
+        <li>
           <div class="" style="">
             <img
               src="../assets/imgs/menu-material.png"
               alt=""
               style="width: 1.4rem"
               id="menu-btn"
+              onclick="menuToggle(event)"
             />
             <img
               src="../assets/imgs/logo.png"
               alt=""
               style="height: 1.6rem; margin-left: 1.1rem"
+              onclick="redirect(event, 'home.html')"
             />
-            <h3 style="">Dumb Fit</h3>
+            <h3 onclick="redirect(event, 'home.html')" style="">Dumb Fit</h3>
           </div>
         </li>
         <div style="display: flex; align-items: center;">
@@ -44,15 +46,6 @@
     <div class="global-container" style="display: flex">
       <nav class="sidebar" data-toogle="side">
         <ul>
-          <!-- <li onclick="menuToggle(event)"> -->
-          <!--   <div class="icons-nav-div"> -->
-          <!--     <img -->
-          <!--       src="../assets/imgs/menu-material.png" -->
-          <!--       alt="" -->
-          <!--       style="width: 1.4rem" -->
-          <!--     /> -->
-          <!--   </div> -->
-          <!-- </li> -->
           <li onclick="redirect(event, 'home.html')" data-loc="home.html">
             <div class="icons-nav-div">
               <img
@@ -129,7 +122,7 @@
       </nav>
 
       <div id="div-pesquisa" style="width: 100%">
-        <h1>Pesquise pelo nome do seu treino</h1>
+        <h1 style="margin-bottom: 1rem;">Pesquise pelo nome do seu treino</h1>
         <div
           style="
             background-color: white;

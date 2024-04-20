@@ -29,10 +29,10 @@ body {
   border-radius: 10px;
 }
 
-#btn-salvar:hover,
-#btn-criar:hover {
-  transform: scale(1.05);
-}
+/* #btn-salvar:hover, */
+/* #btn-criar:hover { */
+/*   transform: scale(1.05); */
+/* } */
 
 #link-bnt {
   text-decoration: none;

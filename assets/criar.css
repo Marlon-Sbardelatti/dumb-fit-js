@@ -26,13 +26,15 @@ body {
 }
 
 #btn-criar {
-    background-color: #255203;
+    background-color: #7b4d9b;
     display: flex;
     text-align: center;
     padding-inline: 1.3rem;
     align-items: center;
-    border-radius: 1.2rem;
+    border-radius: 1rem;
     border: none;
+    height: 4rem;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 #btn-criar img {
@@ -41,26 +43,31 @@ body {
 }
 
 #btn-salvar {
-    background-color: #4f90ff;
-    margin-right: 0.3rem;
-    border-radius: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-self: flex-end;
+    padding-block: 1rem;
     padding-inline: 2rem;
+    border-radius: 2rem;
+    border: 1px solid;
+    background-color: transparent;
+    margin-right: 1rem;
 }
 
 #btn-salvar,
 #btn-criar {
-    padding-block: 1rem;
-    /* padding-inline: 2rem; */
-    /* border-radius: 1.5rem; */
-    border: none;
-    color: white;
-    font-weight: bold;
+    /* padding-block: 1rem; */
+    /* /1* padding-inline: 2rem; *1/ */
+    /* /1* border-radius: 1.5rem; *1/ */
+    /* border: none; */
+    /* color: white; */
+    /* font-weight: bold; */
 }
 
-#btn-salvar:hover,
-#btn-criar:hover {
-    transform: scale(1.05);
-}
+/* #btn-salvar:hover, */
+/* #btn-criar:hover { */
+/*     transform: scale(1.05); */
+/* } */
 
 #buttons_container {
     display: flex;
@@ -213,7 +220,7 @@ body {
     align-self: flex-end;
     padding-block: 1rem;
     padding-inline: 2rem;
-    border-radius: 1.5rem;
+    border-radius: 2rem;
     border: none;
     background-color: rgb(54, 53, 59);
     color: white;
