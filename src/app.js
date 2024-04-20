@@ -556,11 +556,11 @@ function renderElement(element) {
 	series.innerText = "Séries";
 	let reps = document.createElement("th");
 	reps.innerText = "Reps";
-	reps.setAttribute("style", "border-right: 1px solid grey");
+	series.setAttribute("style", "border-right: 1px solid grey");
 	// nome.setAttribute("style", "borde: 1px solid black")
 	tr.appendChild(nome);
+    tr.appendChild(reps);
 	tr.appendChild(series);
-	tr.appendChild(reps);
 	let thead = document.createElement("thead");
 	thead.appendChild(tr);
 	body.appendChild(thead);
