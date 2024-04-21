@@ -125,19 +125,85 @@
         </ul>
       </nav>
 
-      <div style="">
-        <div style="height: 20rem; margin-left: 5rem">
-          <h1 id="title">Dumb Fit</h1>
-          <h1 id="dumber">Be better, be dumber!</h1>
-          <p id="p-desc">
-            Bem-vindo ao Dumb Fit, onde a força encontra a diversão! Somos mais
-            do que uma academia, somos uma comunidade apaixonada por fitness e
-            bem-estar.<br />
-            Oferecemos uma variedade de treinamentos, tudo projetado para
-            ajudá-lo a atingir seus objetivos de forma eficaz e divertida.<br />
-            Junte-se a nós e descubra o poder de uma vida ativa e saudável no
-            Dumb Fit.
-          </p>
+      <div style="display: flex; justify-content: center; width: 100%">
+        <div class="grid-container">
+          <div class="grid-item grid-item-main" style="">
+            <!-- <div style="height: 10rem; background-color: #dbd8e1; b#7b4d9b;order-radius: 1.3rem;"></div> -->
+            <div class="card-content" style="margin-top: 1.5rem">
+              <img src="../assets/imgs/logo.png" alt="" />
+              <h1>Dumb Fit</h1>
+              <h3>Be better, be dumber!</h3>
+              <p style="margin-top: 1.5rem; font-size: 17px">
+                Bem-vindo ao Dumb Fit, onde a força encontra a diversão! Somos
+                mais do que uma academia, somos uma comunidade apaixonada por
+                fitness e bem-estar.<br />
+                Oferecemos uma variedade de treinamentos, tudo projetado para
+                ajudá-lo a atingir seus objetivos de forma eficaz e
+                divertida.<br />
+                Junte-se a nós e descubra o poder de uma vida ativa e saudável
+                no Dumb Fit.
+              </p>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div style="width: 100%">
+              <img
+                src="../assets/imgs/boxer.jpg"
+                style="height: 100%; width: 100%; border-radius: 1.2rem"
+                alt=""
+              />
+            </div>
+            <div class="card-content">
+              <h3>Buscar treino</h3>
+              <p>Procure pelo seu treino entre os treinos salvos!</p>
+              <br />
+              <br />
+              <br />
+              <button class="card-button" onclick="redirect(event, 'pesquisar.html')">Buscar</button>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div style="">
+              <img
+                src="../assets/imgs/bg-crop.jpg"
+                style="height: 100%; width: 100%; border-radius: 1.2rem"
+                alt=""
+              />
+            </div>
+            <div class="card-content">
+              <h3>Criar treino</h3>
+              <p>
+                Crie um treino totalmente personalizado com a nossa ferramenta
+                de criação de treino!
+              </p>
+              <br />
+              <br />
+              <br />
+              <button class="card-button" style="margin-top: 1rem" onclick="redirect(event, 'criar.html')">
+                Criar
+              </button>
+            </div>
+          </div>
+          <div class="grid-item" style="">
+            <div style="">
+              <img
+                src="../assets/imgs/dumbels.jpg"
+                style="height: 100%; width: 100%; border-radius: 1.2rem"
+                alt=""
+              />
+            </div>
+            <div class="card-content">
+              <h3>Listar treinos</h3>
+              <p>
+                Confira a lista completa de treinos salvos até agora e aproveite
+                ao máximo sua próxima sessão na academia!
+              </p>
+              <br />
+              <br />
+              <br />
+              <button class="card-button" style="" onclick="redirect(event, 'treinos.html')">Listar</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
